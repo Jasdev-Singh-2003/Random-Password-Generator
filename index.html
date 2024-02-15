@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Password Generator</title>
+  <link rel="shortcut icon" href="assets/Images/Favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="utils.css">
+</head>
+<body>
+  <h1 class="txtCenter">random password generator</h1>
+  <p class="txtCenter">Create strong and secure passwords to keep your account safe online.</p>
+  <div class="mainContainer disFlex">
+    <img id="srcStrengthImage" src="assets/Images/goodStrength.svg" alt="passwordSecurityStrength">
+    <div class="generatorInput disFlex">
+      <div>
+        <input id="passOutput" type="text" readonly/>
+        <span id="passStrength">Good</span>
+        <img src="assets/Images/icons8-restart-50.png" alt="" onclick="newPassword()"/>
+        <button id="copyBtn" onclick="copyPass()">copy</button>
+      </div>
+      <div>
+        <span class="disBlock">Password Length:</span>
+        <div class="disFlex">
+          <button title="Very weak" onclick="passLength(5)">5</button>
+          <button title="Weak" onclick="passLength(10)">10</button>
+          <button title="Good" onclick="passLength(15)" >15</button>
+          <button title="Strong" onclick="passLength(20)">20</button>
+          <button title="Very strong" onclick="passLength(25)">25</button>
+          <input type="number" title="Custom Length: Between 1 and 40" name="customPassLength" placeholder="1-40" class="txtCenter" id="customPassLength" min="0" max="40" onclick="passLength(document.getElementById('customPassLength').value)" onkeyup="passLength(document.getElementById('customPassLength').value)"/>
+        </div>
+      </div>
+      <div>
+        <span class="disBlock">Characters Used:</span>
+        <div class="disFlex">
+          <input type="checkbox" name="uppercase" id="uppercase" onclick="includeChars()" checked/><span>ABC</span>
+          <input type="checkbox" name="lowercase" id="lowercase" onclick="includeChars()" checked/><span>abc</span>
+          <input type="checkbox" name="numbers" id="numbers" onclick="includeChars()" checked/><span>123</span>
+          <input type="checkbox" name="symbols" id="symbols" onclick="includeChars()" checked/><span>#$&</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts.js"></script>
+</body>
+</html>
